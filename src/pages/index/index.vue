@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <div>
-      <img src="" alt="" />
+      <img src="" alt="">
     </div>
     {{ state.msg }} <Dongdong />
     <div class="btn">
@@ -15,8 +15,8 @@
       </nut-button>
     </div>
     <nut-toast
-      :msg="state.msg2"
       v-model:visible="state.show"
+      :msg="state.msg2"
       :type="state.type"
       :cover="state.cover"
     />
@@ -24,25 +24,28 @@
 </template>
 
 <script lang="ts" setup>
-import { onLogin, testGet } from "@api/module/login";
-import { Dongdong } from "@nutui/icons-vue-taro";
+import { onLogin, testGet } from '@api/module/login'
+import { Dongdong } from '@nutui/icons-vue-taro'
+onMounted(() => {
+  useIsLogin()
+})
 const state = reactive({
-  msg: "欢迎使用 NutUI4.0 开发小程序",
-  msg2: "你成功了～",
-  type: "text",
+  msg: '欢迎使用 NutUI4.0 开发小程序',
+  msg2: '你成功了～',
+  type: 'text',
   show: false,
   cover: false,
-});
+})
 
 const handleClick = (type, msg, cover = false) => {
-  state.show = true;
-  state.msg2 = msg;
-  state.type = type;
-  state.cover = cover;
-};
+  state.show = true
+  state.msg2 = msg
+  state.type = type
+  state.cover = cover
+}
 async function handleLogin() {
-  await onLogin();
-  await testGet();
+  await onLogin()
+  await testGet()
 }
 </script>
 

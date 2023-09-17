@@ -22,7 +22,6 @@
       "node_modules/@types"
     ],
     "paths": {
-  		// 设置对应的别名
       "@*": ["./src/*"],
     }
   },
